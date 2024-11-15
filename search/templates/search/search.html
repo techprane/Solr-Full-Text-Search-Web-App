@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solr Full Text Search</title>
+</head>
+<body>
+    <form method="get">
+        <input type="text" name="q" placeholder="Search..." value="{{ query }}" />
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if results %}
+        <h2>Search Results</h2>
+        <ul>
+            {% for result in results %}
+            <li>
+                <strong>{{ result.title }}</strong><br />
+                {{ result.content }}
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+</body>
+</html>
